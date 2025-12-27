@@ -1,209 +1,199 @@
-🚀 Multi-Tenant SaaS Project & Task Management System
+# 🚀 Multi-Tenant SaaS Project & Task Management System
 
-A full-stack, production-ready Multi-Tenant SaaS application that allows multiple organizations (tenants) to manage users, projects, and tasks with strict data isolation.
+A **full-stack, production-ready Multi-Tenant SaaS application** that enables multiple organizations (**tenants**) to manage users, projects, and tasks with **strict data isolation**.
 
-This project demonstrates real-world SaaS architecture, secure authentication, and Docker-based deployment.
+This project demonstrates **real-world SaaS architecture**, **secure authentication**, and **Docker-based deployment** — making it a strong **portfolio project for interviews**.
 
-🌟 Project Highlights
 
-✅ Multi-Tenant Architecture using tenant_id
+::contentReference[oaicite:0]{index=0}
 
-🔐 JWT Authentication & Role-Based Access Control
 
-👥 Tenant Admin & User Roles
+---
 
-📁 Project Management
+## 🌟 Project Highlights
 
-✅ Task Management (Add / Update / Delete / Status)
+- ✅ **Multi-Tenant Architecture** using `tenant_id`
+- 🔐 **JWT Authentication & Role-Based Access Control**
+- 👥 **Tenant Admin & User Roles**
+- 📁 **Project Management**
+- ✅ **Task Management** (Add / Update / Delete / Status)
+- 🐳 **Fully Dockerized** (One-command setup)
+- 🎨 **Clean React UI**
+- 🧪 **APIs tested using Postman**
+- 📦 **Industry-standard folder structure**
 
-🐳 Fully Dockerized (One-command setup)
+---
 
-🎨 Clean React UI
-
-🧪 APIs tested using Postman
-
-📦 Industry-standard folder structure
-
-🧠 Architecture Overview
-
-User → React Frontend
-Frontend → Node.js Backend (JWT Auth)
-Backend → PostgreSQL Database
-
-Each request:
-
-JWT validates user
-
-tenant_id isolates tenant data
-
-Same backend serves multiple tenants securely
-
-🛠️ Technology Stack
-Frontend
-
-React
-
-Axios
-
-CSS (Custom styling)
-
-Backend
-
-Node.js
-
-Express.js
-
-JWT (Authentication)
-
-bcrypt (Password hashing)
-
-Database
-
-PostgreSQL
-
-DevOps
-
-Docker
-
-Docker Compose
-
-👤 User Roles
-
-Super Admin
-
-Manages tenants
-
-Tenant Admin
-
-Creates users
-
-Manages projects & tasks
+## 🧠 Architecture Overview
 
 User
+↓
+React Frontend
+↓ (JWT Auth)
+Node.js Backend
+↓ (tenant_id isolation)
+PostgreSQL Database
 
-Views assigned projects & tasks
+markdown
+Copy code
 
-✨ Features
-Authentication
+### 🔐 Request Flow
+1. User logs in → receives **JWT**
+2. JWT validates user identity
+3. `tenant_id` is extracted from token
+4. Backend filters data **per tenant**
+5. Same backend securely serves **multiple tenants**
 
-Secure login using JWT
+---
 
-Token stored in browser localStorage
+## 🛠️ Technology Stack
 
-Role-based route protection
+### Frontend
+- React
+- Axios
+- Custom CSS
 
-Multi-Tenancy
+### Backend
+- Node.js
+- Express.js
+- JWT Authentication
+- bcrypt (Password Hashing)
 
-Shared database
+### Database
+- PostgreSQL
 
-tenant_id used in all tables
+### DevOps
+- Docker
+- Docker Compose
 
-No tenant can access another tenant’s data
+---
 
-Projects
+## 👤 User Roles
 
-Create projects
+### 🔹 Super Admin
+- Create & manage tenants
 
-View tenant-specific projects
+### 🔹 Tenant Admin
+- Create users
+- Manage projects & tasks
 
-Tasks
+### 🔹 User
+- View assigned projects
+- Update task status
 
-Add tasks
+---
 
-Update task status (Todo → Done)
+## ✨ Features
 
-Delete tasks
+### 🔐 Authentication
+- Secure login using JWT
+- Token stored in browser `localStorage`
+- Role-based route protection
 
-Auto-refresh UI
+### 🏢 Multi-Tenancy
+- Shared database architecture
+- `tenant_id` present in all tables
+- Complete tenant data isolation
+- Client **never sends** `tenant_id`
 
-📂 Project Structure
+### 📁 Projects
+- Create projects
+- View tenant-specific projects
+
+### ✅ Tasks
+- Add tasks
+- Update task status (Todo → Done)
+- Delete tasks
+- Auto-refresh UI
+
+---
+
+## 📂 Project Structure
+
 multi-tenant-saas/
 │
 ├── backend/
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── routes/
-│   │   ├── middleware/
-│   │   └── db.js
-│   ├── server.js
-│   └── Dockerfile
+│ ├── src/
+│ │ ├── controllers/
+│ │ ├── routes/
+│ │ ├── middleware/
+│ │ └── db.js
+│ ├── server.js
+│ └── Dockerfile
 │
 ├── frontend/
-│   ├── src/
-│   │   ├── pages/
-│   │   ├── components/
-│   │   └── styles/
-│   ├── App.js
-│   └── Dockerfile
+│ ├── src/
+│ │ ├── pages/
+│ │ ├── components/
+│ │ └── styles/
+│ ├── App.js
+│ └── Dockerfile
 │
 ├── docker-compose.yml
 └── README.md
 
-🐳 Docker Setup
-Prerequisites
+yaml
+Copy code
 
-Docker Desktop
+---
 
-Node.js 18+
+## 🐳 Docker Setup
 
-Run the Application
+### ✅ Prerequisites
+- Docker Desktop
+- Node.js 18+
+
+### ▶️ Run the Application
+```bash
 docker compose up --build
-
-Application URLs
-
-Frontend: http://localhost:3000
-
-Backend API: http://localhost:5001
-
-Health Check: http://localhost:5001/api/health
-
-Database: localhost:5432
+🌐 Application URLs
+Service	URL
+Frontend	http://localhost:3000
+Backend API	http://localhost:5001
+Health Check	http://localhost:5001/api/health
+PostgreSQL	localhost:5432
 
 🧪 API Testing (Postman)
-
-Login API returns JWT token
+🔑 Authentication
+Login API returns JWT Token
 
 Pass token in headers:
 
+makefile
+Copy code
 Authorization: Bearer YOUR_TOKEN
-
-
-Tested APIs:
-
+✅ Tested APIs
 Authentication
 
-Projects CRUD
+Projects (CRUD)
 
-Tasks CRUD
+Tasks (CRUD)
 
 Task Status Update
 
 🔒 Security Practices
-
 Passwords hashed using bcrypt
 
 JWT tokens with expiry
 
 Role-based authorization middleware
 
-Tenant isolation enforced at backend
+Backend-enforced tenant isolation
 
-Client never sends tenant_id
+No cross-tenant data access
 
 🎯 Why This Project Matters
+✅ Real-world SaaS architecture
 
-Real-world SaaS design
+✅ Multi-tenant data isolation (highly demanded skill)
 
-Multi-tenant data isolation (highly demanded skill)
+✅ Docker & DevOps experience
 
-Docker & DevOps exposure
+✅ Clean frontend-backend integration
 
-Clean frontend-backend integration
-
-Strong portfolio project for interviews
+✅ Strong interview-ready portfolio project
 
 🚀 Future Improvements
-
 Task assignment to users
 
 Audit logs
@@ -215,7 +205,4 @@ UI with Tailwind / Material UI
 Cloud deployment (AWS / Render / Railway)
 
 👩‍💻 Author
-
 Anusha Pavani Venneti
-
-
