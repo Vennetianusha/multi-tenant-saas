@@ -110,30 +110,28 @@ Copy code
 
 ## 📂 Project Structure
 
+```text
 multi-tenant-saas/
 │
 ├── backend/
-│ ├── src/
-│ │ ├── controllers/
-│ │ ├── routes/
-│ │ ├── middleware/
-│ │ └── db.js
-│ ├── server.js
-│ └── Dockerfile
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── routes/
+│   │   ├── middleware/
+│   │   └── db.js
+│   ├── server.js
+│   └── Dockerfile
 │
 ├── frontend/
-│ ├── src/
-│ │ ├── pages/
-│ │ ├── components/
-│ │ └── styles/
-│ ├── App.js
-│ └── Dockerfile
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── components/
+│   │   └── styles/
+│   ├── App.js
+│   └── Dockerfile
 │
 ├── docker-compose.yml
 └── README.md
-
-yaml
-Copy code
 
 ---
 
